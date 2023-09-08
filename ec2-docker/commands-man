@@ -1,0 +1,32 @@
+[root@ip-10-0-1-224 ~]# history
+    7  python --version
+    8  docker
+    9  c
+   10  docker-compose up
+   11  docker-compose
+   12  c
+   13  docker images
+   14  c
+   15  pip install docker
+   16  python --version
+   17  c
+   18  pip install docker==4.4.4
+   19  python3
+   20  c
+   21  pip install docker==4.4.4
+   22  exit
+   23  docker container ls
+   24  history
+
+[root@ip-10-0-1-224 ~]# exit
+logout
+[ec2-user@ip-10-0-1-224 ~]$ history
+
+    4  pip install docker==4.4.4
+    5  pip install docker-compose
+    6  cd
+    7  ls
+    8  vim docker-compose.yaml
+    9  docker container ls
+   10  su -
+   11  history

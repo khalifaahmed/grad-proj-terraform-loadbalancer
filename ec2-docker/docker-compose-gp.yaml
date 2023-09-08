@@ -1,0 +1,50 @@
+version: '3.4'
+
+services:
+  issuetrackerapi:
+    image: mosaabradi/issuetrackerapi:4.0.0
+    container_name: issuetrackerapi
+    ports:
+      - 5255:5255
+    environment:
+      - Postgres__Host=grad-proj-db.crk9p8pjr5na.us-east-2.rds.amazonaws.com:5432
+      - Postgres__Database=issuetracker
+      - Postgres__Username=gradproj
+      - Postgres__Password=gradproj
+      - EmailOptions__HostAddress=smtp-relay.sendinblue.com
+      - EmailOptions__HostPort=587
+      - EmailOptions__HostUsername=mosp.rady@gmail.com
+      - EmailOptions__HostPassword=EBIQKSPs79FLvwVk
+      - EmailOptions__SenderEmail=mosp.rady@gmail.com
+      - EmailOptions__SenderName="Mossab Radi"
+      - AWS__AccessKeyId=AKIA3E2RSBFA4UCSIRNL
+      - AWS__SecretAccessKey=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
+      - AWS__Region=us-east-1
+      - AWS__BucketName=grad-proj-bucket-2023
+      - UI__Url=http://localhost
+  issuetrackerangular:
+    image: mosaabradi/issuetrackerangular:4.0.0
+    container_name: issuetrackerangular
+    ports:
+      - 8080:80
+    environment:
+      - API_URL=http://localhost:5255
+  # network:
+  #   image: 9529777/grad-proj-app:1.0
+  #   container_name: network
+  #   ports:
+  #     - 8080:80
+  # postgres:
+  #   image: postgres
+  #   container_name: postgres
+  #   ports:
+  #     - 5432:5432
+  #   environment:
+  #     - POSTGRES_PASSWORD=password
+  #     - POSTGRES_USER=admin
+    # volumes:
+    #   - postgresqlData:/var/lib/postgresql/data
+
+# volumes:
+#   postgresqlData:
+#     external: true
